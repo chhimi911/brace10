@@ -12,12 +12,24 @@ const steps = [
   ["Learn", "Gather comfort and usability feedback to guide the next iteration."],
 ];
 
+const conceptStatus = [
+  ["Real today", "Evelyn’s display board, notebook sketch, observations, and design question."],
+  ["Prototype vision", "Generated visualizations that explore the sleeve shape, straps, pad zones, and removable-module idea."],
+  ["Still to learn", "Fit, materials, comfort, construction, and any future technology would need careful adult-guided exploration."],
+];
+
+const process = [
+  ["01", "Observe", "An everyday family observation became a question worth exploring."],
+  ["02", "Sketch", "Evelyn mapped out the shape, pad zones, and removable-module idea by hand."],
+  ["03", "Visualize", "Concept renders make the original idea easier to discuss, refine, and build on."],
+];
+
 export default function Home() {
   return (
     <main>
       <nav className="nav" aria-label="Main navigation">
         <a className="wordmark" href="#top" aria-label="BraceTEN home"><span className="mark" aria-hidden="true">✦</span> Brace<span>TEN</span></a>
-        <div className="nav-links"><a href="#story">The idea</a><a href="#details">Prototype vision</a><a href="#gallery">Process</a></div>
+        <div className="nav-links"><a href="#story">The idea</a><a href="#status">What is real</a><a href="#gallery">Process</a></div>
         <a className="nav-cta" href="#future">See what’s next <span aria-hidden="true">↘</span></a>
       </nav>
 
@@ -25,11 +37,16 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span /> Student inventor concept · by Evelyn Ma</p>
           <h1>Support the <em>journey,</em><br />not just the knee.</h1>
-          <p className="hero-lede">BraceTEN is Evelyn’s early concept for a more thoughtful, adjustable knee-support prototype—created to explore comfort, wearability, and future feedback features.</p>
+          <p className="hero-lede">BraceTEN is a student-designed, adjustable knee-support concept: an open-knee sleeve with comfort straps and future modular ideas to explore—not a finished product.</p>
           <div className="hero-actions"><a className="button button-dark" href="#story">Explore the concept <span aria-hidden="true">→</span></a><a className="text-link" href="#gallery">View the original work <span aria-hidden="true">↘</span></a></div>
           <p className="concept-note">Concept only · Not a manufactured or medical product</p>
         </div>
         <div className="hero-visual"><div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" /><div className="hero-signal signal-one" aria-hidden="true" /><div className="hero-signal signal-two" aria-hidden="true" /><div className="hero-pulse pulse-one" aria-hidden="true" /><div className="hero-label label-top"><b>01</b> Open-knee sleeve</div><div className="hero-label label-bottom"><b>04</b> Rechargeable module</div><div className="hero-image-wrap"><div className="hero-scan" aria-hidden="true" /><img src="/images/braceten-hero-concept.png" alt="BraceTEN knee support concept render on a lower leg" /><span className="image-tag">Prototype Vision</span></div></div>
+      </section>
+
+      <section className="concept-status motion-reveal" id="status" aria-labelledby="concept-status-title">
+        <div className="concept-status-intro"><p className="eyebrow"><span /> Clear by design</p><h2 id="concept-status-title">What exists now.<br /><em>What is being imagined.</em></h2></div>
+        <div className="status-list">{conceptStatus.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="intro-strip motion-reveal" aria-label="Concept summary"><p>Built from one simple question</p><h2>How might knee support feel more <em>personal, wearable,</em> and easier to refine?</h2><p className="intro-detail">A school-project concept inspired by watching a loved one move through everyday life with knee discomfort.</p></section>
@@ -48,9 +65,9 @@ export default function Home() {
 
       <section className="section how"><div className="section-kicker"><span>03</span> A future interaction</div><div className="how-heading"><h2>Simple enough to<br /><em>understand at a glance.</em></h2><p>A website flow based on the original product sketch—not an instruction manual or a claim of current functionality.</p></div><ol className="steps">{steps.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
 
-      <section className="gallery section motion-reveal" id="gallery"><div className="section-kicker"><span>04</span> From early thought to prototype vision</div><div className="gallery-heading"><h2>The original idea is<br /><em>the whole point.</em></h2><p>These images keep the real school-project materials alongside the generated concept visuals, so the journey remains clear and honest.</p></div><div className="gallery-grid"><figure className="gallery-item board"><img src="/images/original-display-board.png" alt="Original BraceTEN display board created by Evelyn Ma" /><figcaption><span>Original Concept</span><b>Display board & annotations</b></figcaption></figure><figure className="gallery-item sketch"><img src="/images/original-sketch.jpeg" alt="Original notebook sketch for the BraceTEN product idea" /><figcaption><span>Original Concept</span><b>Notebook sketch</b></figcaption></figure><figure className="gallery-item render"><img src="/images/braceten-hero-concept.png" alt="Generated BraceTEN product prototype vision" /><figcaption><span>Prototype Vision</span><b>Generated concept render</b></figcaption></figure></div></section>
+      <section className="gallery section motion-reveal" id="gallery"><div className="section-kicker"><span>04</span> From early thought to prototype vision</div><div className="gallery-heading"><h2>The original idea is<br /><em>the whole point.</em></h2><p>These images keep the real school-project materials alongside the generated concept visuals, so the journey remains clear and honest.</p></div><ol className="process-list">{process.map(([number, title, text]) => <li key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></li>)}</ol><div className="gallery-grid"><figure className="gallery-item board"><img src="/images/original-display-board.png" alt="Original BraceTEN display board created by Evelyn Ma" /><figcaption><span>Original Concept</span><b>Display board & annotations</b></figcaption></figure><figure className="gallery-item sketch"><img src="/images/original-sketch.jpeg" alt="Original notebook sketch for the BraceTEN product idea" /><figcaption><span>Original Concept</span><b>Notebook sketch</b></figcaption></figure><figure className="gallery-item render"><img src="/images/braceten-hero-concept.png" alt="Generated BraceTEN product prototype vision" /><figcaption><span>Prototype Vision</span><b>Generated concept render</b></figcaption></figure></div></section>
 
-      <section className="future section" id="future"><div className="future-top"><div><p className="eyebrow"><span /> Still at the beginning</p><h2>What Evelyn could<br />explore <em>next.</em></h2></div><p>Early concepts become stronger through safe, practical questions. These are future areas for prototyping—not promises about a product’s performance.</p></div><div className="future-list"><article><b>01</b><h3>Comfort & fit study</h3><p>Compare materials, sizing ideas, and ease of adjusting the straps.</p></article><article><b>02</b><h3>Safe concept testing</h3><p>Ask qualified adults how to evaluate comfort and non-medical usability appropriately.</p></article><article><b>03</b><h3>Feedback loop</h3><p>Collect simple observations about when and how a prototype may feel easiest to wear.</p></article><article><b>04</b><h3>Build refinement</h3><p>Explore lower-impact materials and a clearer removable-module design.</p></article></div></section>
+      <section className="future section" id="future"><div className="future-top"><div><p className="eyebrow"><span /> Still at the beginning</p><h2>Questions for the<br /><em>next prototype.</em></h2></div><p>Early concepts get stronger when they lead to specific, safe learning questions—not promises about a product’s performance.</p></div><div className="future-list"><article><b>01</b><h3>Which fit feels easiest?</h3><p>Compare strap placement, sizing ideas, and the effort needed to adjust the sleeve.</p></article><article><b>02</b><h3>Which materials feel best?</h3><p>Explore soft materials and construction ideas with appropriate adult guidance.</p></article><article><b>03</b><h3>What should be simpler?</h3><p>Notice which parts of a future mockup are easiest to understand, put on, and adjust.</p></article><article><b>04</b><h3>What should the next build prove?</h3><p>Refine one clear question at a time: fit, material choice, or the removable-module idea.</p></article></div></section>
 
       <section className="inventor"><div className="inventor-card"><span className="eyebrow"><i /> Created by Evelyn Ma</span><h2>Big ideas can start<br />with <em>paying attention.</em></h2><p>BraceTEN is a student inventor project: a thoughtful response to an everyday observation, translated into a product concept worth exploring.</p><a className="button button-light" href="#gallery">See the design journey <span aria-hidden="true">→</span></a></div></section>
       <footer><a className="wordmark" href="#top"><span className="mark" aria-hidden="true">✦</span> Brace<span>TEN</span></a><p>Student inventor concept · Original work by Evelyn Ma</p><p>Concept visuals are generated illustrations, not product photographs.</p></footer>

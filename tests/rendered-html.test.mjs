@@ -14,7 +14,11 @@ test("build output and BraceTEN source assets are present", async () => {
   assert.match(page, /BraceTEN/);
   assert.match(page, /Prototype Vision/);
   assert.match(page, /Original Concept/);
+  assert.match(page, /What exists now/);
+  assert.match(page, /Questions for the/);
+  assert.match(page, /process-list/);
   assert.match(page, /hero-scan/);
   assert.match(css, /prefers-reduced-motion/);
   assert.match(css, /heroFloat/);
+  assert.match(css, /concept-status/);
 });
